@@ -1,6 +1,10 @@
-# FatturaElettronicaToPDF
+# Fattura Elettronica To PDF
+
+**Fattura Elettronica** is an italian standard to exchange invoices.
 
 Print one or more Electronic Invoices into a single PDF.
+
+This project is also a good example of how to print xml files formatted with a suitable stylesheet (xsl)
 
 
 # Installation
