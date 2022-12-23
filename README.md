@@ -4,7 +4,7 @@
 
 Print one or more Electronic Invoices into a single PDF.
 
-This project is also a good example of how to print xml files formatted with a suitable stylesheet (xsl)
+This project is also a good example of how to print xml files formatted with a suitable stylesheet (xsl).
 
 
 # Installation
@@ -16,7 +16,7 @@ Add pdfkit library to Python3: `pip3 install pdfkit`.
 
 # Getting Started
 
-Copy all your invoice files in folder `fatture_xml`.
+Copy all your invoice files in folder `/fatture_xml`.
 
 Run `python3 main.py` to create `MergedFE.pdf`.
 
