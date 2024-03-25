@@ -15,6 +15,8 @@ Add pdfkit library to Python3: `pip3 install pdfkit`.
 
 Add lxml library to Python3: `pip3 install lxml`.
 
+Or use requirements.txt: `pip install -r requirements.txt`.
+
 
 # Getting Started
 

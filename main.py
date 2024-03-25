@@ -26,6 +26,16 @@ def decodeXML(xml_filename):
     return html_data
 
 
+def getInvoiceN(xml_filename):
+    tree = ET.parse(xml_filename)
+    FatturaElettronicaBody = tree.find('FatturaElettronicaBody')
+    DatiGenerali = FatturaElettronicaBody.find('DatiGenerali')
+    DatiGeneraliDocumento = DatiGenerali.find('DatiGeneraliDocumento')
+    Numero = DatiGeneraliDocumento.find('Numero')
+
+    return Numero.text
+
+
 if __name__ == "__main__":
     new_page = '<div style = "display:block; clear:both; page-break-after:always;"></div>'
     html_data = ''
@@ -33,8 +43,15 @@ if __name__ == "__main__":
     current_path = str(pathlib.Path().resolve())
     path_to_xml = current_path + r'\fatture_xml'
 
+    file_list = {}
     for filename in glob.glob(os.path.join(path_to_xml, '*.xml')):
-        html_data = html_data + decodeXML(filename) + new_page
+        file_list[filename] = getInvoiceN(filename)
+    file_list = sorted(
+        file_list.items(), key=lambda kv: 
+            (kv[1], kv[0])
+    )
+    for filename in file_list:
+        html_data = html_data + decodeXML(filename[0]) + new_page
 
     html_data = ''.join(html_data.rsplit(new_page, 1))
     savePDF(html_data)
