@@ -44,12 +44,9 @@ if __name__ == "__main__":
     path_to_xml = current_path + r'\fatture_xml'
 
     file_list = {}
-    for filename in glob.glob(os.path.join(path_to_xml, '*.xml')):
+    for filename in sorted(glob.glob(os.path.join(path_to_xml, '*.xml'))):
         file_list[filename] = getInvoiceN(filename)
-    file_list = sorted(
-        file_list.items(), key=lambda kv: 
-            (kv[1], kv[0])
-    )
+    file_list = sorted(file_list.items())
     for filename in file_list:
         html_data = html_data + decodeXML(filename[0]) + new_page
 
